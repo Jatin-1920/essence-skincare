@@ -1,0 +1,958 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Monofett&family=Rampart+One&display=swap');
+
+
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  /*
+    2. Remove default margin
+  */
+  * {
+    margin: 0;
+  }
+  /*
+    3. Allow percentage-based heights in the application
+  */
+  html, body {
+    height: 100%;
+    overflow-x: hidden;
+  }
+  /*
+    Typographic tweaks!
+    4. Add accessible line-height
+    5. Improve text rendering
+  */
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    background: #e9ebe8;
+    font-family: 'Space Mono';
+    scroll-behavior: smooth;
+  }
+  /*
+    6. Improve media defaults
+  */
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  /*
+    7. Remove built-in form typography styles
+  */
+  input, button, textarea, select {
+    font: inherit;
+  }
+  /*
+    8. Avoid text overflows
+  */
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+  /*
+    9. Create a root stacking context
+  */
+  #root, #__next {
+    isolation: isolate;
+  }
+:root{
+  --Xl-text:clamp(2rem,3.5vw + 1rem,4.5rem);
+  --h2-text : clamp(1.2rem, 2vw + 1rem, 4rem);
+  --l-text:clamp(1.75rem, 1vw + 1rem ,3rem);
+  --h4-text:clamp(1.2rem, 1.5vw,1.75rem);
+  --padding-block:clamp(2rem,2vw + 1rem,4rem);
+  --more-padding-:clamp(4rem,5vw + 1rem,13.5rem);
+  --paddinTop:clamp(3rem,2vw + 1rem,4rem);
+  --paddingSMALL:2rem;
+  --fz25:clamp(1.5rem,1vw + 1rem,2.5rem);
+  --fs225:clamp(1.5rem,1vw + 0.75rem, 2.25rem);
+  --fz325:clamp(2rem,1vw + 1rem, 3.25rem);
+  --fz15:clamp(1.2rem,1vw + 0.5rem,1.5rem);
+  --fz12:clamp(0.8rem,0.5vw + 0.5rem,1.2rem);
+  --fz11:clamp(0.95rem,0.5vw + 0.5rem,1.1rem);
+  --fz1:clamp(0.9rem,0.5vw +  0.5rem , 1rem);
+  --padding95:clamp(2rem, 4vw + 1rem , 9.5rem);
+  --contact-fz:clamp(.75rem,0.5vw + 0.4rem,1rem)
+}
+  h4{
+    margin-bottom: .5rem;
+    font-size: var(--h4-text);
+    font-weight: 300;
+    font-family: 'Fraunces';
+    text-transform: capitalize;
+  }
+
+  h2{
+    font-size: var(--h2-text);
+    font-weight: 300;
+    font-family: 'Fraunces', sans-serif;
+  }
+
+a{
+  text-decoration: none;
+  color: #23231a;
+  cursor: pointer;
+}
+li{
+  list-style: none;
+}
+header{
+position: sticky;
+top: 0;
+z-index: 1;
+background-color: transparent;
+}
+  .primary-nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding-inline: 1rem;
+  border-bottom: 1px solid #23231a;
+  }
+  .nav-backdrop{
+    position: absolute;
+    inset: 0;
+    background:rgba(233, 235, 232, 0.7);
+    backdrop-filter: blur(.31rem);
+    z-index: -1;
+  }
+
+  .nav-left,.nav-right,.primary-navigation{
+    display: flex;
+    align-items: center;
+  }
+  .nav-right{
+    gap: 0;
+  }
+  .nav-left{
+    gap: 1.5rem;
+  }
+
+  .search,.bag,.menu-bar{
+    padding-inline: 1rem;
+  }
+  .nav-right img{
+    display: inline-block;
+  width: 100%;
+  padding-block: .5rem;
+  cursor: pointer;
+  }
+  .search{
+    border-inline: 1px solid #23231a;
+  }
+
+  
+
+.menu-bar{
+  font-size: var(--fz12);
+  padding-block: .5rem;
+  cursor: pointer;
+  display: none;
+}
+.close-bars{
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: .77rem;
+  font-size:1.25rem;
+  color:red;
+  border-right: 1px solid #23231a;
+  border-bottom: 1px solid #23231a;
+  background: #fffcf8;
+  cursor: pointer;
+  display: none;
+}
+
+.faq-contact{
+  padding-top: 1rem;
+  display: none;
+  gap: 1rem;
+width: 100%;
+border-top: 1px solid;
+text-transform:capitalize;
+}
+
+  .primary-navigation{
+    font-size: 1.2rem;
+    gap: 3rem;
+  }
+
+  .primary-navigation li:hover .primary-link{
+    text-decoration:underline;
+    color: indianred;
+  }
+
+
+
+  .toggle-nav{
+    position: absolute;
+    top: 3.40625rem;
+    left: 0;
+    right: 0;
+    bottom: auto;
+    display: none;
+    background: #e9ebe8;
+
+  }
+  .block{
+    display: block;
+  }
+  .nav-shop{
+    border-bottom: 1px solid #23231a;
+    display: grid;
+  grid-template-columns: repeat(3,1fr);
+   }
+
+
+   .nav-col{
+    border-right: 1px solid #23231a;
+    padding-block: var(--paddingSMALL);
+    position: relative;
+    z-index: 999;
+  }
+  
+   .title-shop{
+    font-size: var(--fz11);
+    margin-bottom: 2rem;
+    font-weight: 300;
+    padding-inline: 1rem;
+    text-transform: capitalize;
+   }
+.nav-list,.nav-all{
+  opacity: 0;
+  animation: animate-nav .3s ease-in-out .3s forwards;
+}
+
+   @keyframes animate-nav {
+    0%{
+      transform:translateY(1rem);
+    }
+    100%{
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+   .nav-all,.nav-list-link{
+    font-size: calc(var(--h4-text) + .1rem);
+    margin-bottom: 1rem;
+    padding-bottom: .25rem;
+    text-transform: capitalize;
+    font-family: 'Fraunces';
+    text-decoration: none;
+    padding-inline: 1rem;
+   }
+  
+   .nav-list-link:hover{
+    border-bottom: 1px solid #23231a;
+    width: 100%;
+  }
+  
+  
+  
+  .nav-list-image-wrapper{
+    padding-inline: 1rem;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  
+  .nav-list-image{
+    max-height: 20rem;
+    overflow: hidden;
+  }
+
+
+  .purchase-title{
+    padding-block: 1rem;
+    font-size: var(--fz12);
+    text-align: center;
+    border-bottom: 1px solid #23231a;
+  }
+    /*-------navigation end--------- */
+
+.product-js{
+  position: fixed;
+  inset: 0 0 0 58%;
+  z-index: 999;
+  border-inline: 1px solid #23231a;
+  font-family: 'Fraunces';
+  transform: translateX(100%);
+  transition: transform 350ms ease-in-out;
+  backdrop-filter: blur(1rem);
+  -webkit-backdrop-filter: blur(1rem);
+  font-family: 'Rampart One';
+overflow: auto;
+background: hsla(165, 62%, 90%, 0.75);
+}
+
+
+.product-js.add-toggle{
+transform: translateX(0);
+}
+.product-js-bar{
+  display: block;
+}
+.no-item{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%);
+  font-size: 1.5rem;
+  color: black;
+  text-align: center;
+}
+
+
+.Cart-col{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 3.41rem;
+  border-top: 1px solid #23231a;
+  padding-inline: .5rem;
+  color:#04574f;
+  font-size: var(--fz15);
+  font-weight: bold;
+}
+.cart-Price{
+  display: grid;
+  gap: .5rem;
+  align-items: center;
+  place-items: center;
+}
+.Cart-col img{
+  width: 150px;
+  height: 150px;
+}
+.cart-Title{
+  text-align: center;
+}
+.cartPrice{
+  color: #04574f;
+}
+.fa-trash{
+  cursor: pointer;
+  font-size: clamp(1.2rem,1vw + 0.7rem, 2rem);
+}
+.cart-col-flex{
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.cart-col-flex span:nth-child(2){
+  font-size:1.5rem;
+  font-weight: bold;
+}
+
+.minus,.plus{
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+}
+
+
+.sumPrice{
+ position: absolute;
+ left: 2rem;
+ bottom: 2rem;
+ font-size: 2rem;
+ font-weight: bold;
+}
+
+.sum-text{
+  padding-left: .5rem;
+  color:#04574f;
+}
+
+    /* cart end*/
+
+
+  .main-content{
+    margin: 1rem;
+    padding-inline: 2rem 1rem;
+    min-height: 85vh;
+    position: relative;
+  }
+
+  .main-image{
+position: absolute;
+inset: 0;
+background-image: url(https://assets.website-files.com/618e479701c18f6732605a35/61967105cf885c01066e0a06_essence-Hero.jpg);
+background-position: 50% 50%;
+background-size: cover;
+
+  }
+  .main-title-button{
+    padding-top: var(--paddinTop);
+    width: 49%;
+    position: relative;
+  }
+
+  .main-title-button h1{
+    font-size: var(--Xl-text);
+    margin-bottom: 1rem;
+    font-weight: 300;
+    font-family: 'Fraunces';
+  }
+
+  .button-shop {
+    font-size: var(--fz12);
+padding: .5rem 2rem;
+border: 1px solid #23231a;
+background: #fffcf8;
+margin-top:3rem;
+margin-bottom: 1rem;
+position: relative;
+z-index: 0;
+border-radius: .25rem;
+transition: all 350ms ease-in-out;
+text-transform: capitalize;
+  }
+
+ .button-shop:hover{
+  background: #23231a;
+color: #fffcf8;
+ }
+
+ .button-shop:hover  a{
+  color: #fffcf8;
+ }
+
+ 
+
+ 
+
+.section-divider{
+  width: 100%;
+  height: 1px;
+  background: #23231a;
+}
+
+.section{
+  padding-block: var(--padding-block);
+}
+.section-container{
+  max-width: 100%;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+.center-cont{
+  max-width: 70%;
+  margin-inline: auto;
+  text-align: center;
+}
+.title{
+  font-size:var(--fz12);
+  text-transform: uppercase;
+  line-height: 1.6;
+  font-weight: 400;
+}
+ 
+
+.grid{
+  display: grid;
+gap: 0;
+  grid-template-columns: repeat(4,1fr);
+  border-left: 1px solid #23231a;
+}
+
+.grid-wrapper{
+  border-right: 1px solid #23231a;
+  border-bottom: 1px solid #23231a;
+  padding-inline: 1rem;
+}
+.product-link{
+  padding: 1rem 1rem 2rem;
+}
+.image-wrapper{
+  position: relative;
+}
+.hover-img{
+  position: absolute;
+  inset: 0;
+  display: none;
+  opacity: 0;
+}
+
+
+
+.product-content-wrapper{
+  position: relative;
+  padding-top: 1rem;
+  text-align: center;
+}
+
+
+
+.product-content p{
+  font-size: var(--fz15);
+  margin-bottom: .5rem;
+}
+
+.hover-button-detail{
+  position: absolute;
+  inset: auto  0 0 0;
+  opacity: 0;
+  padding: .8rem 2rem;
+transform: translateY(1rem);
+  transition: opacity 350ms ease-in-out,transform 350ms ease-in-out;
+  background: #fffcf8;
+  font-size: var(--fz12);
+}
+
+.grid-wrapper:hover .hover-img{
+  display: block;
+  opacity: 1;
+}
+
+.grid-wrapper:hover .hover-button-detail{
+display: block;
+transform: translateY(0);
+opacity: 1;
+}
+.grid-wrapper:hover .product-content{
+opacity: 0;
+}
+
+.our-story{
+  padding-block: 1rem;
+}
+.our-story-container{
+  padding-inline: 1rem;
+  max-width: 100%;
+  margin-inline: auto;
+}
+
+.split-section{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  align-items: stretch;
+}
+
+.split-section-image,.split-text{
+  width: 100%;
+}
+
+.split-text{
+  text-align: center;
+  background: #727e74;
+  position: relative;
+  margin-right: .5rem;
+  padding-block: var(--more-padding-) ;
+  padding-inline: var(--paddinTop);
+  color: #fffcf8;
+}
+.split-text h1{
+  font-size: var(--h2-text);
+  font-family: 'Fraunces';
+  font-weight: 300;
+}
+.button-wrapper{
+  display: inline-block;
+  border: 1px solid #fffcf8;
+  padding: .75rem 2rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  transition: background 350ms ease-in-out;
+  background: transparent;
+}
+
+.button-wrapper a{
+  color:#fffcf8;
+  transition: color 350ms ease-in-out;
+}
+
+.button-wrapper:hover {
+  background: white;
+}
+.button-wrapper:hover .button-link{
+  color: #23231a;
+}
+
+.split-section-image{
+  padding-left: .5rem;
+}
+.split-bg-image{
+  width: 100%;
+  height: 100%;
+  background-image: url(https://assets.website-files.com/618e479701c18f6732605a35/61966f8ecf885c26a96dff9f_girl-cleansing-face.jpg);
+  background-position: 50% 50%;
+  background-size: cover;
+}
+
+.grid2{
+  border: none;
+  text-align: center;
+}
+.btn2{
+  margin-bottom: 1rem;
+}
+
+.image-wrapper2{
+  padding-inline: 1rem;
+  margin-top: 4em;
+  display: grid;
+  place-items: center;
+}
+
+.image-wrapper2 img{
+  margin-bottom: 2rem;
+  width: 9.2rem;
+}
+.all-caps{
+  line-height: 1.6;
+  font-size: var(--fz12);
+  text-transform: uppercase;
+}
+ .product-category-section{
+  border-right: 1px solid #23231a;
+ }
+.product-category-container{
+  display: grid;
+  grid-template-columns:1fr 3fr;
+  padding-inline: 1rem;
+}
+
+.prod-col{
+  display: flex;
+  padding-block: 3rem;
+  padding-inline: 1rem;
+  flex-direction: column;
+  
+}
+ .down-text{
+  display: flex;
+  flex-direction: column;
+  margin-top: auto;
+ }
+ .down-text h2{
+  font-size: var(--l-text);
+ }
+ .down-text p{
+  font-size: var(--fz12);
+ }
+
+ .prod-img-col{
+  display: flex;
+  }
+
+  .prod-img-col .image-wrapper{
+padding-inline: 1rem;
+  padding-block: 2rem;
+border-left: 1px solid #23231a;
+  }
+.prod-img-col .image-wrapper .button-shop{
+  margin-block: 1rem;
+  text-align: center;
+}
+ 
+
+.art-container{
+  display: flex;
+  gap: 1rem;
+  min-height: 35vh;
+  padding-inline: 1rem;
+  padding-block: 1rem;
+}
+.art-img{
+  height: 35rem;
+}
+.art-img img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.art-col,.art-img{
+  width: 100%;
+}
+.art-col{
+  padding-block: 1rem;
+}
+
+.art-text-container h4{
+  font-size: var(--fs225);
+}
+
+
+
+.half-size-container{
+  display: flex;
+}
+
+.half-size-t{
+  width: 100%;
+  padding-block: 4rem;
+  padding-inline: 1rem 2rem;
+}
+
+.half-size-text p {
+  font-size: var(--fz15);
+  margin-bottom: .5rem;
+}
+.half-size-text{
+  border-right: 1px solid #23231a;
+}
+
+
+
+
+.ig-section{
+  padding-block: 1rem;
+}
+.ig-container{
+  display: flex;
+  padding-inline: 1rem;
+  gap: 1rem;
+  text-align: center;
+}
+.ig-flex{
+  width: 50%;
+}
+.ig-image-wrapper{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: .5rem;
+}
+
+
+
+.ig-image-wrapper .image-wrapper img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.ig-title-cont{
+  padding-top: var(--padding95);
+  padding-bottom: 2rem;
+  padding-inline: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background:#fffcf8;
+}
+.ig-top-title{
+ padding-bottom: var(--padding95);
+}
+.ig-top-title h2{
+  margin-bottom: 1rem;
+}
+.link-wrapper{
+  padding-top: 3rem;
+  font-size:var(--fz12);
+}
+.link-wrapper:hover .link-wrapper-link{
+ color: indianred;
+text-decoration: underline;
+}
+
+
+.footer-container{
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+}
+
+
+.footer-logo{
+  display: flex;
+  justify-content: flex-end;
+  padding: 2rem 1rem;
+  flex-direction: column;
+}
+.footer-logo img{
+  width: 150px;
+  margin-bottom: .5rem;
+}
+
+.footer-nav{
+  display: flex;
+}
+.footer-comp{
+  width: 100%;
+  border-left: 1px solid #23231a;
+  padding-bottom: 2rem;
+}
+.footer-title{
+  padding-inline: 2rem;
+  padding-block: 2rem 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #23231a;
+}
+
+
+.footer-links{
+  font-size: var(--fz12);
+  padding-block: 1rem;
+  padding-inline: 2rem .5rem;
+  text-transform: capitalize;
+}
+.footer-links:hover{
+  border-bottom: 1px solid #23231a;
+}
+
+
+
+.filter-wrap{
+  display: grid;
+  border-bottom: 1px solid #23231a;
+  grid-template-columns: 50% 1fr;
+}
+
+
+.unactive-filter{
+  padding: 1rem;
+  font-size: 1.25rem;
+  text-transform: capitalize;
+  border-right: 1px solid #23231a;
+}
+.active{
+  background: #fffcf8;
+}
+.other-filter{
+  display:flex;
+}
+
+.other-filter a{
+  width: 100%;
+}
+
+.filter-text-section{
+  padding-block: 12rem 6.5rem;
+}
+.filter-text-container{
+  padding-inline: 1rem;
+}
+
+.small-width{
+  width: 50%;
+}
+.small-width h1{
+  font-size: var(--Xl-text);
+  margin-bottom: 1rem;
+  font-family: 'Fraunces';
+}
+.small-width p{
+  font-size: var(--fz15);
+}
+
+
+.form-block{
+  margin-top: 3rem;
+width: 50%;
+margin-inline: auto;
+}
+form input{
+  min-height: 3rem;
+  padding: var(--contact-fz);
+  font-size: var(--contact-fz);
+  font-weight: bold;
+ border: 1px solid #23231a;
+ background: transparent;
+ border-radius: .25rem;
+ letter-spacing: 1px;
+font-family: 'Fraunces';
+
+}
+
+form{
+  display: flex;
+  gap: 1rem;
+}
+#email{
+  width: 60%;
+}
+
+.form-success,.form-fail{
+  display: none;
+}
+
+#submit{
+  background: #23231a;
+  color: #fffcf8;
+}
+
+.contact-flex{
+  display: flex;
+}
+
+.contact-grid-box{
+  width: 100%;
+  border-right: 1px solid #23231a;
+  padding-block: 2rem;
+  padding-inline: 1rem 2rem;
+}
+.contact-grid-box h3{
+  font-size: var(--fz25);
+  font-family: 'Fraunces';
+  font-weight: 300;
+  text-transform: capitalize;
+}
+.contact-grid-box p{
+  font-size: var(--fz12);
+}
+.contact-grid-box:nth-child(3){
+  border-right: none;
+}
+
+.contact-bg-image{
+  background-image: url("https://assets.website-files.com/618e479701c18f6732605a35/61966d03ff4de68ccde6d746_cosmetic-bottles.jpg");
+}
+
+.contact-split-text{
+  padding: 4rem 6.5rem;
+  text-align: left;
+  background-color: #760026;
+}
+
+.contact-split-text h1{
+  font-size: var(--fz325);
+}
+.contact-input{
+  padding-top: 2rem;
+}
+
+#contact-form{
+  display: grid;
+  gap: 1rem;
+}
+#contact-form input,textarea {
+min-width: 100%;
+font-size: var(--contact-fz);
+padding: var(--contact-fz);
+color: lavenderblush;
+border:1px solid #fffcf8;
+background: transparent;
+letter-spacing: 1px;
+font-weight: bold;
+font-family: 'Fraunces';
+}
+
+#contact-form textarea{
+  height: 10rem;
+  margin-bottom: 1.5rem;
+}
+
+.contact-insta{
+  padding-block: 2rem;
+}
+
+.contact-insta-cont{
+  display: grid;
+  gap: 1rem;
+  padding-inline: 1rem;
+}
+.insta-flex{
+  display: flex;
+  gap: 1rem;
+}
+.insta-flex .image-wrapper{
+  width: 100%;
+  
+}
+
+
