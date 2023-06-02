@@ -285,6 +285,9 @@ text-transform:capitalize;
   -webkit-backdrop-filter: blur(1rem);
   font-family: 'Rampart One';
 overflow: auto;
+display: flex;
+justify-content: space-between;
+flex-direction: column;
 background: hsla(165, 62%, 90%, 0.75);
 }
 
@@ -357,9 +360,8 @@ transform: translateX(0);
 
 
 .sumPrice{
- position: absolute;
- left: 2rem;
- bottom: 2rem;
+ padding-bottom: 2rem;
+ padding-left: 2rem;
  font-size: 2rem;
  font-weight: bold;
 }
