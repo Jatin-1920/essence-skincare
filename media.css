@@ -219,5 +219,10 @@ margin-bottom: .5rem;
     .footer-logo img{
       width: 4.56rem;
     }
+
+    .footer-title{
+      padding-inline: 1rem;
+      padding-block: 1rem;
+    }
 }
 
