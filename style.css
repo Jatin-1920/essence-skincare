@@ -364,6 +364,7 @@ transform: translateX(0);
  padding-left: 2rem;
  font-size: 2rem;
  font-weight: bold;
+ margin-top: auto;
 }
 
 .sum-text{
