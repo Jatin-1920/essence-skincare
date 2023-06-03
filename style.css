@@ -808,8 +808,8 @@ text-decoration: underline;
 
 
 .unactive-filter{
-  padding: 1rem;
-  font-size: 1.25rem;
+  padding: var(--fz1);
+  font-size:var(--fz12);
   text-transform: capitalize;
   border-right: 1px solid #23231a;
 }
