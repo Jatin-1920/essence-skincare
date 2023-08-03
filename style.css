@@ -281,14 +281,12 @@ text-transform:capitalize;
   font-family: 'Fraunces';
   transform: translateX(100%);
   transition: transform 350ms ease-in-out;
-  backdrop-filter: blur(1rem);
-  -webkit-backdrop-filter: blur(1rem);
   font-family: 'Rampart One';
 overflow: auto;
 display: flex;
 justify-content: space-between;
 flex-direction: column;
-background: hsla(165, 62%, 90%, 0.75);
+background:#e9ebe8;
 }
 
 

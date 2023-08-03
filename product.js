@@ -72,9 +72,9 @@ const html =  essenceItem.map(x=>
               <span id="button" ><i class="fa fa-trash" id=${x.id} ></i></span>
           </div>
           <div class="cart-col-flex">
-          <button class="minus"  >-</button>
+          <button class="minus" onclick="decrement(${x.id}")>-</button>
           <span class="counted">${x.count}</span>
-          <button class="plus">+</button>
+          <button class="plus" onclick="increment(${x.id}")>+</button>
           </div>
           </div>
   
@@ -110,6 +110,37 @@ function deleteItems(id){
     essenceItem = essenceItem.filter((item)=>item.id !==id)
     store.dispatchEvent(new CustomEvent("itemsUpdated"));
 }
+
+function increment(id) {
+    let selectedItem  =id
+    let search = essenceItem.find(x=>x.id===selectedItem)
+    if(search)
+    {
+        search.count +=1
+    }
+    console.log(search)
+    store.dispatchEvent(new CustomEvent("itemsUpdated"));
+    calculation(id)
+    }
+    function decrement(id) {
+        let selectedItem  =id
+    let search = essenceItem.find(x=>x.id===selectedItem)
+    if(search.count===0) {
+      deleteItems(id)
+    }
+    else{
+        search.count -=1
+    }
+    store.dispatchEvent(new CustomEvent("itemsUpdated"));
+    console.log(search)
+    calculation(id)
+    }
+    
+    function calculation(id) {
+        let search = essenceItem.find(x=>x.id===id)
+        search.price = search.count*search.countPrice
+        store.dispatchEvent(new CustomEvent("itemsUpdated"));
+    }
 
 addToCart.forEach(btn=>btn.addEventListener('click',addToCartItem))
 store.addEventListener("itemsUpdated",displayItem)
