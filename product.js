@@ -72,9 +72,9 @@ const html =  essenceItem.map(x=>
               <span id="button" ><i class="fa fa-trash" id=${x.id} ></i></span>
           </div>
           <div class="cart-col-flex">
-          <button class="minus" onclick="decrement(${x.id}")>-</button>
+          <button class="minus" onclick="decrement(${x.id})">-</button>
           <span class="counted">${x.count}</span>
-          <button class="plus" onclick="increment(${x.id}")>+</button>
+          <button class="plus" onclick="increment(${x.id})">+</button>
           </div>
           </div>
   
