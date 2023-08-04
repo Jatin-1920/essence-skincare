@@ -121,6 +121,7 @@ function increment(id) {
     console.log(search)
     store.dispatchEvent(new CustomEvent("itemsUpdated"));
     calculation(id)
+    deleted(id)
     }
     function decrement(id) {
         let selectedItem  =id
@@ -134,6 +135,7 @@ function increment(id) {
     store.dispatchEvent(new CustomEvent("itemsUpdated"));
     console.log(search)
     calculation(id)
+    deleted(id)
     }
     
     function calculation(id) {
@@ -141,6 +143,16 @@ function increment(id) {
         search.price = search.count*search.countPrice
         store.dispatchEvent(new CustomEvent("itemsUpdated"));
     }
+
+function deleted(id) {
+const selectedItem = id
+const search = essenceItem.find(x=>x.id===selectedItem)
+if(search.count === 0) {
+    essenceItem = essenceItem.filter(item=>item.id!==id)
+}
+store.dispatchEvent(new CustomEvent("itemsUpdated"));
+}
+
 
 addToCart.forEach(btn=>btn.addEventListener('click',addToCartItem))
 store.addEventListener("itemsUpdated",displayItem)
