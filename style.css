@@ -281,7 +281,6 @@ text-transform:capitalize;
   font-family: 'Fraunces';
   transform: translateX(100%);
   transition: transform 350ms ease-in-out;
-  font-family: 'Rampart One';
 overflow: auto;
 display: flex;
 justify-content: space-between;
@@ -306,34 +305,35 @@ transform: translateX(0);
   text-align: center;
 }
 
-
+.storeItem{
+  margin-top: 5rem;
+  padding-inline: 1rem;
+  display: grid;
+  gap: 2rem;
+}
 .Cart-col{
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-top: 3.41rem;
-  border-top: 1px solid #23231a;
-  padding-inline: .5rem;
-  color:#04574f;
   font-size: var(--fz15);
   font-weight: bold;
+  border-bottom: 2px solid black;
 }
 .cart-Price{
   display: grid;
   gap: .5rem;
+  height: 100%;
   align-items: center;
   place-items: center;
 }
 .Cart-col img{
   width: 150px;
   height: 150px;
+
 }
 .cart-Title{
   text-align: center;
 }
-.cartPrice{
-  color: #04574f;
-}
+
 .fa-trash{
   cursor: pointer;
   font-size: clamp(1.2rem,1vw + 0.7rem, 2rem);
@@ -342,6 +342,7 @@ transform: translateX(0);
   display: flex;
   gap: 1rem;
   align-items: center;
+  justify-content: space-around;
 }
 .cart-col-flex span:nth-child(2){
   font-size:1.5rem;
@@ -363,6 +364,7 @@ transform: translateX(0);
  font-size: 2rem;
  font-weight: bold;
  margin-top: auto;
+ padding-top: 2rem;
 }
 
 .sum-text{
