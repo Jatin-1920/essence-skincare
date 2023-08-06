@@ -317,6 +317,7 @@ transform: translateX(0);
   font-size: var(--fz15);
   font-weight: bold;
   border-bottom: 2px solid black;
+  padding-inline: 1rem;
 }
 .cart-Price{
   display: grid;
