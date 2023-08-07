@@ -318,6 +318,7 @@ transform: translateX(0);
   font-weight: bold;
   border-bottom: 2px solid black;
   padding-inline: 1rem;
+  place-items: center;
 }
 .cart-Price{
   display: grid;
